@@ -41,6 +41,13 @@ public class Timer : MonoBehaviour
     [Tooltip("Start time in seconds")] 
     public float startTime = 10f; //time for level (if level is timed)
 
+    [Tooltip("Time increase for PowerUp")]
+    public float addTime = 10f;  //the amount of time that is added when a powerup is picked up
+                                 // is used for the AddTime() method
+
+    //public PowerUp addT;
+    //part of experiment to make addtime apart of power up not time
+
     private float currentTime; //current time of timer
 
     [HideInInspector]
@@ -112,4 +119,9 @@ public class Timer : MonoBehaviour
 
     }//end DisplayTime
 
+    //amount of time increase when picking up a powerUp
+    public void AddTime()
+    {
+        currentTime += addTime;
+    } //addition of this element will require rebalance of time from main branch
 }

@@ -35,7 +35,7 @@ public class Collectable : MonoBehaviour
         {
             other.GetComponent<Collection>().AddToCollection(); //call method on the Collection component of other object
 
-            Destroy(gameObject);//destroy this gameObject (collectable objest)
+            Destroy(gameObject);//destroy this gameObject (collectable object)
         }
 
     }//end OnTriggerEnter()
