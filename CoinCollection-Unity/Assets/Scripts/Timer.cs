@@ -15,6 +15,8 @@ using UnityEngine;
 public class Timer : MonoBehaviour
 {
 
+    GameManager gm; //reference to the GameManager script
+
     #region Timer Singleton
     static private Timer timer; //Timer instance
     static public Timer LevelTimer { get { return timer; } } //public access to read only timer
@@ -58,6 +60,8 @@ public class Timer : MonoBehaviour
     {
         //runs the method to check for the Timer
         CheckTimerIsInScene();
+
+        gm = GameManager.GM; // setting the game manager
     }//end Awake()
 
     // Start is called before the first frame update
@@ -95,8 +99,8 @@ public class Timer : MonoBehaviour
                 timerStopped = true; //stop the timer
             }
 
-            Debug.Log(DisplayTime(currentTime)); //Log time
-
+            //Debug.Log(DisplayTime(currentTime)); //Log time
+            DisplayTime(currentTime); //display current time, presumably in the HUD
         }
 
     }//end RunTimer();
@@ -104,7 +108,10 @@ public class Timer : MonoBehaviour
     //Runs events for the end of the level
     private void LevelEnd()
     {
-        Debug.Log("level end");
+        Debug.Log("level end"); //was not told to replace
+
+        gm.SetTargetState(GameState.gameLevelEnded);
+
     }//end LevelEnd()
 
     //Formats time as string

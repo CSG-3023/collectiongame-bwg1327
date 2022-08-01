@@ -14,6 +14,8 @@ using UnityEngine;
 
 public class Collection : MonoBehaviour
 {
+    GameManager gm; //reference to gameMAnager script
+
     /***VARIABLES***/
     [Tooltip("Number of collectables to beat level")]
     public int winCollectAmount; //number of collectables to beat the level
@@ -27,6 +29,12 @@ public class Collection : MonoBehaviour
     private int collectablesInCollection = 0; //number of collectables collected by player 
 
     private Timer timer;//reference to level timer
+
+    void Awake()
+    {
+        gm = GameManager.GM; //setting the reference
+    }//end of awake
+    //awake did not exist prior to need for gm, was probably deleted, so I remade it
 
     // Start is called before the first frame update
     void Start()
@@ -56,6 +64,8 @@ public class Collection : MonoBehaviour
 
             Debug.Log("You win!");
         }
+
+        gm.collection = (collectablesInCollection + "/" + winCollectAmount);//values of collection in manager for use in HUD
 
     }//end Update()
 
