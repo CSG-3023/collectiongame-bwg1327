@@ -82,6 +82,7 @@ public class Timer : MonoBehaviour
         if (timerStopped)
         {
             // check to see if timer has stoped
+            
             LevelEnd();
         }
         else
@@ -100,7 +101,7 @@ public class Timer : MonoBehaviour
             }
 
             //Debug.Log(DisplayTime(currentTime)); //Log time
-            DisplayTime(currentTime); //display current time, presumably in the HUD
+            gm.timer = DisplayTime(currentTime); //display current time, presumably in the HUD
         }
 
     }//end RunTimer();
@@ -110,7 +111,9 @@ public class Timer : MonoBehaviour
     {
         Debug.Log("level end"); //was not told to replace
 
+        gm.lostLevel();
         gm.SetTargetState(GameState.gameLevelEnded);
+        
 
     }//end LevelEnd()
 

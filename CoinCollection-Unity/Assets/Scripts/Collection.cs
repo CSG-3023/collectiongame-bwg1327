@@ -63,6 +63,9 @@ public class Collection : MonoBehaviour
             if (timer != null) { timer.timerStopped = true; }
 
             Debug.Log("You win!");
+            Collectable.collectableCount -= Collectable.collectableCount;//fixes bug where amount needed to win will increase upon restarting
+            gm.BeatLevel();  //added to help with end screen hopefully
+            
         }
 
         gm.collection = (collectablesInCollection + "/" + winCollectAmount);//values of collection in manager for use in HUD
@@ -75,5 +78,7 @@ public class Collection : MonoBehaviour
         collectablesInCollection++; //add to cmount in collection
         Debug.Log("Collectable Added");
     }//end AddToCollection()
+
+   
 
 }

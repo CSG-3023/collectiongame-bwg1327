@@ -14,6 +14,8 @@ using UnityEngine;
 
 public class Collectable : MonoBehaviour
 {
+    GameManager gm; //fixing bugs
+
     /***VARIABLES***/
 
     static public int collectableCount;//counts the number of collectables in the scene
@@ -23,6 +25,8 @@ public class Collectable : MonoBehaviour
     {
         collectableCount++; //add to collectable
         Debug.Log("Number of Colletables " + collectableCount);
+
+        gm = GameManager.GM;
 
     }//end Awake()
 
@@ -40,4 +44,14 @@ public class Collectable : MonoBehaviour
 
     }//end OnTriggerEnter()
 
+    //created because of a bug that occurs when you restart a level and the amount of collectable required to win doubles
+    /*
+    void update()
+    {
+        if (gm.GetCurrentState() == GameState.gameLevelEnded)
+        {
+            collectableCount = 0;
+        }
+    }
+    */
 }

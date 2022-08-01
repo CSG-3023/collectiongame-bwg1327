@@ -154,7 +154,7 @@ public class GameManager : MonoBehaviour
     {
 
         //If ESC is pressed quit game
-        if (Input.GetKey("escape")) { SetTargetState(GameState.gameExited); }
+        //if (Input.GetKey("escape")) { SetTargetState(GameState.gameExited); }
         
         //Game logic run every frame of current state
         UpdateCurrentState();
@@ -364,6 +364,11 @@ public class GameManager : MonoBehaviour
         endMsg = winMessage;
         SetTargetState(GameState.gameLevelEnded);
     }//end BeatLevel()
+
+    public void lostLevel()//made to help with end screen
+    {
+        endMsg = looseMessage;
+    }
 
     //Load Next Level
     void LoadLevel()
