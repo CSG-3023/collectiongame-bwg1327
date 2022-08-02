@@ -220,7 +220,7 @@ public class GameManager : MonoBehaviour
 
             case GameState.gameExited:
                 Debug.Log("Game Exited");
-                UnityEditor.EditorApplication.isPlaying = false;
+                //UnityEditor.EditorApplication.isPlaying = false;
                 Application.Quit();
                 break;
 

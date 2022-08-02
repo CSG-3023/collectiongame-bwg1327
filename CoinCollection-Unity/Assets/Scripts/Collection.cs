@@ -33,6 +33,7 @@ public class Collection : MonoBehaviour
     void Awake()
     {
         gm = GameManager.GM; //setting the reference
+        
     }//end of awake
     //awake did not exist prior to need for gm, was probably deleted, so I remade it
 
@@ -63,7 +64,7 @@ public class Collection : MonoBehaviour
             if (timer != null) { timer.timerStopped = true; }
 
             Debug.Log("You win!");
-            Collectable.collectableCount -= Collectable.collectableCount;//fixes bug where amount needed to win will increase upon restarting
+            Collectable.collectableCount = 0;//fixes bug where amount needed to win will increase upon restarting
             gm.BeatLevel();  //added to help with end screen hopefully
             
         }

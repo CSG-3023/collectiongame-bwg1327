@@ -110,10 +110,9 @@ public class Timer : MonoBehaviour
     private void LevelEnd()
     {
         Debug.Log("level end"); //was not told to replace
-
         gm.lostLevel();
         gm.SetTargetState(GameState.gameLevelEnded);
-        
+        Collectable.collectableCount = 0;
 
     }//end LevelEnd()
 

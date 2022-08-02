@@ -23,10 +23,10 @@ public class Collectable : MonoBehaviour
     //Awake is called on instantiation before Start
     void Awake()
     {
+        
+        gm = GameManager.GM;
         collectableCount++; //add to collectable
         Debug.Log("Number of Colletables " + collectableCount);
-
-        gm = GameManager.GM;
 
     }//end Awake()
 
